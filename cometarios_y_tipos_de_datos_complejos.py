@@ -1,3 +1,6 @@
+from os import system
+
+
 print("Actividad: comentarios y tipos de datos complejos")
 
 # Son los datos da la persona a considerar
@@ -8,19 +11,19 @@ print("Actividad: comentarios y tipos de datos complejos")
 # persona=["Arturo","Caballero",19,1.62,48]
 
 while True:
-    print("Si quiere salir teclee 1\nPara continuar teclee [Enter]")
-    x = input()
+    system("cls")
+    x = int(input("Si quiere salir teclee 1\nPara continuar teclee 2\n-> "))
     if x == 1: break
-    else :
-        nom = input("Ingrese su nombre   : ")
-        ap = input("Ingrese su apellido  : ")
-        edad = input("Ingrese su edad    : ")
-        est = input("Ingrese su estatura : ")
-        peso = input("Ingrese su peso    : ")
-        persona=[nom, ap, int(edad), float(est),float(peso)]
+    elif x == 2 :
+        nom = str(input("Ingrese su nombre    : "))
+        ap = str(input("Ingrese su apellido  : "))
+        edad = int(input("Ingrese su edad    : "))
+        est = float(input("Ingrese su estatura : "))
+        peso = float(input("Ingrese su peso    : "))
+        persona=[nom, ap, edad, est, peso]
         
         # Se usa para calcular el imc
-        imc = int(persona[4])/((persona[3])**2)
+        imc = float(persona[4])/((persona[3])**2)
         print("El imc de ",persona[0],"es: ",imc,sep=' ')
 
         if imc >= 0 and imc <= 15.99 :
@@ -40,4 +43,7 @@ while True:
         elif imc >= 40.00:
           print (persona[0], "tiene", "obesidad morbida", sep=' ')
 
-        print("----------------------------------------")
+        print("----------------------------------------\n[Enter para continuar]")
+        input()
+    else:
+      print("Opción no valida")
